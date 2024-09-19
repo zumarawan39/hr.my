@@ -1,0 +1,43 @@
+/* Add this to your CSS file */
+.bg-gray-300 {
+    background-color: #e2e8f0; /* Active background color */
+  }
+  
+  .bg-white {
+    background-color: #ffffff; /* Inactive background color */
+  }
+  
+  .text-blue-600 {
+    color: #2563eb; /* Color for the icon when active */
+  }
+  
+  .hover\:text-blue-600:hover {
+    color: #2563eb; /* Color for the icon on hover */
+  }
+  
+  .hover\:bg-gray-300:hover {
+    background-color: #e2e8f0; /* Background color on hover */
+  }
+  
+  /* Customize scrollbar for WebKit browsers */
+
+/* Scrollbar track */
+aside::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Scrollbar thumb */
+aside::-webkit-scrollbar-thumb {
+  background-color: black; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Scrollbar thumb on hover */
+aside::-webkit-scrollbar-thumb:hover {
+  background-color: #1057ee; /* Color of the scrollbar thumb on hover */
+}
+
+/* Scrollbar track (optional) */
+aside::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}

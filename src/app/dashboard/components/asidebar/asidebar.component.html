@@ -1,0 +1,409 @@
+<aside
+[class.w-72]="isSidebarOpen"
+[class.w-0]="!isSidebarOpen"
+  class="fixed top-0 left-0 h-full bg-gray-100 shadow-lg transition-width duration-300 overflow-y-auto"
+>
+  <!-- Sidebar Header with Toggle Button -->
+  <div class="flex items-center justify-end  mx-2  py-4">
+    <button (click)="toggleSidebar()" class="ml-2">
+      <i class="fas fa-times text-black text-xl ml-3"></i> <!-- Close icon -->
+    </button>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <ul class="space-y-2">
+    <!-- Home section  -->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-600 hover:text-white"
+        routerLink="/dashboard/main"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-home transition-colors"></i>
+          <span class="transition-colors">Home</span>
+        </span>
+      </button>
+    </li>
+    
+    
+    <!-- Employee Section -->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-950 hover:text-white"
+        (click)="toggleSubmenu('employee')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-user hover:text-white"></i>
+          <span class="hover:text-white">Employee</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isEmployeeSubmenuOpen }"
+        ></i>
+      </button>
+      <ul  *ngIf="isEmployeeSubmenuOpen" class="pl-8 space-y-2">
+        <li>
+          <a routerLink="/dashboard/mangement" class="block p-2 text-gray-600 hover:text-blue-500">Management</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Request</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Placement</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Employment Terms</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Education</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Experience</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Training</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Legal Document</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Expense Claim Section -->
+    <li class="group">
+  <button
+  class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-cyan-400 hover:text-white"
+    (click)="toggleSubmenu('expense')"
+  >
+    <span class="flex items-center space-x-2">
+      <i class="fas fa-file-invoice-dollar"></i>
+      <span class="ml-2">Expense Claim</span>
+    </span>
+    <i
+      class="fas fa-chevron-down transition-transform duration-200"
+      [ngClass]="{ 'rotate-180': isExpenseOpen }"
+    ></i>
+  </button>
+  <ul
+    *ngIf="isExpenseOpen"
+    class="pl-8 space-y-2"
+    [ngClass]="{ 'bg-gray-100': isExpenseOpen }"
+  >
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Management</a>
+    </li>
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Review</a>
+    </li>
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Transaction Report</a>
+    </li>
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Category</a>
+    </li>
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Type</a>
+    </li>
+    <li>
+      <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Approval Workflow</a>
+    </li>
+  </ul>
+   </li>
+
+    <!-- Leave Section -->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-orange-600 hover:text-white"
+        (click)="toggleSubmenu('leave')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="ml-2">Leave</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isLeaveSubmenuOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isLeaveSubmenuOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Annual Leave</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Sick Leave</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Management</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Planner</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Schedule</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Review</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Transaction Report</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Entitlement Report</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Type</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Earning Policy</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Approval Workflow</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Workday</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Holiday</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Setting</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Attendence-->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-green-600 hover:text-white"
+        (click)="toggleSubmenu('attendance')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-ad"></i>
+          <span class="ml-2">Attendence</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isAttendanceOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isAttendanceOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Management</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Field Check-In</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Time Clock Report</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Workday</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Holiday</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Document Workflow-->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-yellow-800 hover:text-white"
+        (click)="toggleSubmenu('documents')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-plane"></i>
+          <span class="ml-2">Document Workflow</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isDocumentOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isDocumentOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Mangement</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Review</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Approval WorkFlow</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Incident-->
+    <li class="group">
+      <button
+      class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-pinlhover:text-white"
+        (click)="toggleSubmenu('incident')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span class="ml-2"> Incident</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isIncidentOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isIncidentOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Management</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Causeless</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Category</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Type</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Decision</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Team-->
+    <li class="group">
+      <button
+        class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-600 hover:text-white"
+        (click)="toggleSubmenu('team')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-users"></i>
+          <span class="ml-2"> Team</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isTeamOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isTeamOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Discussion</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Document & Form Sharing</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Announcement</a>
+        </li>
+      </ul>
+    </li>
+    <!-- Payroll-->
+    <li class="group">
+      <button
+        class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-600 hover:text-white"
+        (click)="toggleSubmenu('payroll')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-money-bill-wave"></i>
+          <span class="ml-2"> Payroll</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isPayrollOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isPayrollOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Salary Adjustment</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Process</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Annual Salary Statement</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Earning</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Deduction</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Bonus</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Statutory Contribution</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Statutory Table</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Setting</a>
+        </li>
+      </ul>
+    </li>
+    <!--  Employer-->
+    <li class="group">
+      <button
+        class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-600 hover:text-white"
+        (click)="toggleSubmenu('employer')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-building"></i>
+          <span class="ml-2"> Employer</span>
+        </span>
+        <i
+          class="fas fa-chevron-down transition-transform duration-200"
+          [ngClass]="{ 'rotate-180': isEmployerOpen }"
+        ></i>
+      </button>
+      <ul *ngIf="isEmployerOpen" class="pl-8 space-y-2">
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Information</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Job Position</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Department</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Branch</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Level</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Bank</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Course</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Trainer</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Ethnicity</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Religion</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Document Category</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Setting</a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 text-gray-600 hover:text-blue-500">Module Access</a>
+        </li>
+      </ul>
+    </li>
+     <!--   Crowd Fund-->
+     <li class="group">
+      <button
+        class="flex justify-between items-center w-full p-2 text-left text-gray-800 hover:bg-blue-600 hover:text-white"
+        (click)="toggleSubmenu('crowd')"
+      >
+        <span class="flex items-center space-x-2">
+          <i class="fas fa-hand-holding-usd"></i>
+          <span class="ml-2"> Crowd Fund</span>
+        </span>
+      </button>
+     
+    </li>
+    
+  </ul>
+</aside>

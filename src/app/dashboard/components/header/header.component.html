@@ -1,0 +1,21 @@
+<header class="flex justify-between items-center p-2 bg-white shadow-md relative">
+  <div class="flex items-center space-x-2">
+    <button class="text-xl text-black font-bold focus:outline-none" (click)="toggleSidebar()">
+      <i class="fas fa-bars font-bold text-2xl ml-4"></i> <!-- Menu Icon -->
+    </button>
+  </div>
+
+  <!-- Centered HR.my Text -->
+  <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center text-2xl">
+    <span class="text-blue-500"><img src="/assets/images/hr.png" alt=""></span>
+  </div>
+
+  <div class="flex items-center space-x-2 gap-3">
+    <button class="p-2 rounded-full text-blue-500 hover:bg-gray-100 transition focus:outline-none">
+      <i class="fas fa-bell  text-blue-500 text-lg"></i> <!-- Bell Icon -->
+    </button>
+    <button class="p-2 rounded-full text-blue-500 hover:bg-gray-100 transition focus:outline-none" (click)="toggleUserSidebar()">
+      <i class="fas fa-user text-lg text-blue-500"></i> <!-- User Icon -->
+    </button>
+  </div>
+</header>

@@ -1,0 +1,61 @@
+<div class="flex justify-center h-full bg-gray-100">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="bg-white py-4 px-8 rounded-lg shadow-lg mt-5 w-1/3">
+    <mat-card-title class="text-3xl font-bold mt-4 text-center text-indigo-600">Sign Up</mat-card-title>
+    
+    <!-- Name Field -->
+    <mat-form-field appearance="outline" class="w-full my-4">
+      <mat-label>Name</mat-label>
+      <mat-icon matPrefix>person</mat-icon>
+      <input class="focus:bg-white" matInput formControlName="name" type="text" placeholder="Enter your name" required>
+      <mat-error *ngIf="signUpForm.get('name')!.invalid && signUpForm.get('name')!.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Email Field -->
+    <mat-form-field appearance="outline" class="w-full mb-2">
+      <mat-label>Email</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input class="focus:bg-white" matInput formControlName="email" type="email" placeholder="Enter your email" required>
+      <mat-error *ngIf="signUpForm.get('email')!.invalid && signUpForm.get('email')!.touched">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Phone Number Field -->
+    <mat-form-field appearance="outline" class="w-full mb-2">
+      <mat-label>Phone Number</mat-label>
+      <mat-icon matPrefix>phone</mat-icon>
+      <input class="focus:bg-white" matInput formControlName="phone" type="number" placeholder="Enter your phone number" required>
+      <mat-error *ngIf="signUpForm.get('phone')!.invalid && signUpForm.get('phone')!.touched">
+        Please enter a valid phone number.
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Password Field -->
+    <mat-form-field appearance="outline" class="w-full mb-2">
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input class="focus:bg-white" matInput formControlName="password" type="password" placeholder="Enter your password" required>
+      <mat-error *ngIf="signUpForm.get('password')!.invalid && signUpForm.get('password')!.touched">
+        Password is required (minimum 6 characters).
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Confirm Password Field -->
+    <mat-form-field appearance="outline" class="w-full mb-2">
+      <mat-label>Confirm Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input class="focus:bg-white" matInput formControlName="confirmPassword" type="password" placeholder="Confirm your password" required>
+      <mat-error *ngIf="signUpForm.get('confirmPassword')!.invalid && signUpForm.get('confirmPassword')!.touched">
+        Passwords must match.
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit" class="w-full" [disabled]="signUpForm.invalid">
+      Sign Up
+    </button>
+    <a routerLink="/signin" class="my-4 block text-indigo-600">Already Have Account?</a>
+  </form>
+</div>

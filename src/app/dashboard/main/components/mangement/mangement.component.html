@@ -1,0 +1,90 @@
+<div class="flex flex-col h-screen justify-between">
+    <!-- Top Bar (Sticky) -->
+    <div class="bg-blue-50 p-4 sticky top-0 z-10">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-bold">Employee</h1>
+      </div>
+      <div class="bg-lime-400 mt-2 p-2 flex justify-between items-center">
+        <p class="text-sm">In a rush? Just fill up this page and you are good to go.</p>
+        <i class="text-green-500 text-2xl">✔</i>
+      </div>
+    </div>
+  
+    <!-- Scrollable Content -->
+    <div class="overflow-y-auto p-6 bg-white flex-grow">
+      <form [formGroup]="employeeForm" class="space-y-4" (ngSubmit)="onSubmit()">
+        <!-- ID Field -->
+        <mat-form-field class="w-full">
+          <mat-label>ID *</mat-label>
+          <input matInput formControlName="id" placeholder="Enter ID" required />
+        </mat-form-field>
+  
+        <!-- First Name and Last Name -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <mat-form-field class="w-full">
+            <mat-label>First Name *</mat-label>
+            <input matInput formControlName="firstName" placeholder="Enter First Name" required />
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>Last Name *</mat-label>
+            <input matInput formControlName="lastName" placeholder="Enter Last Name" required />
+          </mat-form-field>
+        </div>
+  
+        <!-- Gender Dropdown -->
+        <mat-form-field class="w-full">
+          <mat-label>Gender *</mat-label>
+          <mat-select formControlName="gender" required>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Birth Date -->
+        <mat-form-field class="w-full">
+          <mat-label>Birth Date *</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthDate" required />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <!-- Nationality Field -->
+        <mat-form-field class="w-full">
+          <mat-label>Nationality *</mat-label>
+          <input matInput formControlName="nationality" placeholder="Enter Nationality" required />
+        </mat-form-field>
+  
+        <!-- National ID and Passport Fields -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <mat-form-field class="w-full">
+            <mat-label>National ID *</mat-label>
+            <input matInput formControlName="nationalID" placeholder="Enter National ID" required />
+          </mat-form-field>
+  
+          <mat-form-field class="w-full">
+            <mat-label>Passport</mat-label>
+            <input matInput formControlName="passport" placeholder="Enter Passport Number" />
+          </mat-form-field>
+        </div>
+  
+        <!-- Job Position -->
+        <mat-form-field class="w-full">
+          <mat-label>Job Position *</mat-label>
+          <input matInput formControlName="jobPosition" placeholder="Enter Job Position" required />
+        </mat-form-field>
+      </form>
+    </div>
+  
+    <!-- Bottom Bar (Sticky) -->
+    <div class="bg-gray-100 p-4 flex justify-between items-center sticky bottom-0 z-10">
+      <button mat-raised-button color="primary" type="submit" (click)="onQuickEntry()">Quick Entry</button>
+      <div class="flex space-x-4 text-xl">
+        <mat-icon>home</mat-icon>
+        <mat-icon>call</mat-icon>
+        <mat-icon>more_vert</mat-icon>
+      </div>
+    </div>
+  </div>
+  

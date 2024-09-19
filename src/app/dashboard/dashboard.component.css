@@ -1,0 +1,12 @@
+.ml-16 {
+    margin-left: 4rem;
+  }
+  
+  .ml-64 {
+    margin-left: 16rem;
+  }
+  
+  .transition-margin {
+    transition: margin-left 0.3s;
+  }
+  
